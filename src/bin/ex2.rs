@@ -11,7 +11,6 @@ fn main() {
         .expect("Failed to read line");
     let _size: u32 = size.trim().parse().expect("Please type a number!");
     let mut input = input
-        .trim()
         .split_whitespace()
         .map(|s| s.parse().expect("Parse Error"));
     let mut count: u64 = 0;

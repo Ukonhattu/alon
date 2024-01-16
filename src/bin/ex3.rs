@@ -17,7 +17,7 @@ fn divide_into_equal_sets(n: u64) {
     }
     let mut set1: Vec<u64> = Vec::new();
     let mut set2: Vec<u64> = Vec::new();
-    total_sum = total_sum / 2;
+    total_sum /= 2;
     for i in (1..n + 1).rev() {
         if total_sum >= i {
             set1.push(i);
@@ -31,7 +31,7 @@ fn divide_into_equal_sets(n: u64) {
     for i in set1 {
         print!("{} ", i);
     }
-    println!("");
+    println!();
     println!("{}", set2.len());
     for i in set2 {
         print!("{} ", i);

@@ -9,8 +9,8 @@ fn main() {
     io::stdin()
         .read_line(&mut input)
         .expect("Failed to read line");
-    let size: u32 = size.trim().parse().expect("Please type a number!");
-    let mut input: Vec<u32> = input
+    let _size: u32 = size.trim().parse().expect("Please type a number!");
+    let _input: Vec<u32> = input
         .split(',')
         .map(|s| s.parse::<u32>().expect("parse error"))
         .collect();

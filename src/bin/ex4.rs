@@ -10,30 +10,20 @@ fn main() {
         .read_line(&mut integers)
         .expect("Unable to read integers");
     let input = integers
-        .trim()
         .split_whitespace()
         .map(|s| s.parse::<u32>().expect("Parse error"))
         .collect();
     collect(input);
 }
 
-fn collect(mut input: Vec<u32>) {
-    let mut count = 0;
-    let mut current;
-    let mut to_remove = Vec::new();
-    while input.is_empty() {
-        current = 0;
-        for i in 0..input.len() {
-            if input[i] >= current {
-                to_remove.push(i);
-                current = input[i];
-            }
+fn collect(input: Vec<u32>) {
+    let mut count: u32 = 0;
+    let mut last: u32 = 0;
+    for &item in input.iter() {
+        if item < last {
+            count += 1;
         }
-        to_remove.iter().for_each(|s| {
-            input.remove(*s);
-        });
-        to_remove.clear();
-        count = count + 1;
+        last = item;
     }
-    println!("{}", count)
+    println!("{}", count);
 }
