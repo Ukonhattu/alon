@@ -11,19 +11,19 @@ fn main() {
         .expect("Unable to read integers");
     let input = integers
         .split_whitespace()
-        .map(|s| s.parse::<u32>().expect("Parse error"))
+        .map(|s| s.parse::<usize>().expect("Parse error"))
         .collect();
     collect(input);
 }
 
-fn collect(input: Vec<u32>) {
+fn collect(input: Vec<usize>) {
     let mut count: u32 = 0;
-    let mut last: u32 = 0;
-    for &item in input.iter() {
-        if item < last {
+    let mut lookup: Vec<bool> = vec![false; input.len() + 1];
+    for c in input {
+        if !lookup[c - 1] {
             count += 1;
         }
-        last = item;
+        lookup[c] = true;
     }
     println!("{}", count);
 }
